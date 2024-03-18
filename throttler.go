@@ -21,9 +21,9 @@ type throttler struct {
 	lastClean time.Time
 }
 
-// NewThrottler creates a new NewThrottler that will allow at most one request every
+// New creates a new New that will allow at most one request every
 // throttle duration, and will expire entries after cleanup has passed.
-func NewThrottler(throttle, cleanup time.Duration) *throttler {
+func New(throttle, cleanup time.Duration) *throttler {
 	return &throttler{
 		valueMap:  make(map[interface{}]time.Time),
 		throttle:  throttle,
